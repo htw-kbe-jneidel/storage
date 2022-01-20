@@ -18,8 +18,8 @@ export function getProductQuantityAtLocationController( repository: ProductQuant
     } else {
       return {
         amount: result,
-        error: false,
-      }
+        error : false,
+      };
     }
   };
 }

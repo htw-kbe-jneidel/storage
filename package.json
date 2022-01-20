@@ -1,6 +1,6 @@
 {
-  "name": "vat-calculator",
-  "repository": "htw-kbe-jneidel/vat-calculator",
+  "name": "storage",
+  "repository": "htw-kbe-jneidel/storage",
   "version": "0.0.1",
   "author": {
     "name": "Jonathan Neidel",
@@ -19,7 +19,7 @@
     "watch": "concurrently -k -n \"🔨,🚀\" \"npm run watch-build\" \"npm run watch-test\" --prefix name",
     "watch-build": "tsc -w",
     "watch-test": "jest --watch",
-    "start-prod": "node -r dotenv/config dist/app.js dotenv_config_path=.env",
+    "start-prod": "concurrently -n \"storage\" \"node dist/app.js\" --prefix name",
     "lint": "eslint --fix -c ~/.config/eslint/eslintrc-ts --ext .ts --parser-options \"{ 'ecmaVersion': 10, 'ecmaFeatures': { 'impliedStrict': true }, project: ./tsconfig.json }\" src"
   },
   "dependencies": {
