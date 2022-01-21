@@ -1,5 +1,7 @@
 # storage
 
+The secondary database holding business data. Available through message queue RPC calls.
+
 ## Queues
 
 ### getProductQuantityAtLocation
