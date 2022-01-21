@@ -1,5 +1,6 @@
 import * as rabbitMq from "./entity/rabbit-mq";
 import { MongoDB } from "./entity/mongodb";
+import { configureRedis } from "./service/configureRedis";
 import { ProductQuantityAtLocationSchema } from "./schema";
 import { ProductQuantityAtLocationRepository } from "./repository";
 import { getProductQuantityAtLocationController, getAllProductQuantitiesAtLocationsController } from "./controller";
@@ -10,6 +11,8 @@ const GET_QUANTITIES_QUEUE = "getAllProductQuantitiesAtLocations";
 const MONGO_URI = "mongodb://127.0.0.1:27017/storage";
 
 ( async () => {
+  await configureRedis();
+
   const mongoDB = await MongoDB.create( MONGO_URI );
   mongoDB.addModel( "ProductQuantityAtLocation", ProductQuantityAtLocationSchema );
   const productQuantityAtLocationRepository = new ProductQuantityAtLocationRepository( mongoDB.models.ProductQuantityAtLocation );
