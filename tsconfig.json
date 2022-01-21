@@ -32,7 +32,7 @@
     },
     "experimentalDecorators": true
   },
-  "include": [ "src" ],
+  "include": [ "src", "test" ],
   "excude": [
     "node_modules"
   ]
